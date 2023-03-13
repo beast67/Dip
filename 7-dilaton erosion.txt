@@ -1,0 +1,59 @@
+//DILATION -EROSION -OPENING - CLOSING OPERATION 
+adilate=zeros(10,10);
+adilate(4:7,4:7)=1
+//disp(adilate);
+struele=imcreatese("rect",3,3);
+
+afterdilate=imdilate(adilate,struele);
+disp(afterdilate);
+afteropen=imopen(adilate,struele);
+disp(afteropen);
+
+aerode=zeros(10,10);
+aerode(4:7,4:7)=1
+disp(aerode);
+struele=imcreatese("rect",3,3);
+
+aftererode=imerode(aerode,struele);
+disp(aftererode);
+
+original=imread("C:\Users\Satish-Pendhare\Downloads\cameraman.jpg")
+//original=imread("c:\users\dell\documents\circuit.tif");
+//original=imread("c:\users\dell\documents\circle.jpg");
+se=imcreatese("rect",3,3);
+
+
+
+
+
+dilate=imdilate(original,se);
+figure(1);
+imshow(original);
+figure(2);
+imshow(dilate);
+erode=imerode(original,se);
+figure(3);
+imshow(erode);
+
+afteropen=imopen(original,se);
+figure(4);
+imshow(afteropen);
+
+afterclose=imclose(original,se);
+figure(5);
+imshow(afterclose);
+
+S=imread("C:\Users\Satish-Pendhare\Downloads\cameraman.jpg");
+se = imcreatese('ellipse',11,11);
+
+S2 = imclose(S,se);
+figure(6);
+imshow(S2);
+
+S=imread("C:\Users\Satish-Pendhare\Downloads\cameraman.jpg")
+
+se = imcreatese('ellipse',9,9);
+
+S2 = imopen(S,se);
+figure(7);
+imshow(S2);
